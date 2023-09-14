@@ -1,0 +1,35 @@
+name: rust-formatting
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-rustfmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install rust-toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Run rustfmt using cargo
+        working-directory: dtm-database-backend
+        run: cargo fmt
+
+  run-cargo-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install rust-toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Run cargo-test using cargo
+        working-directory: dtm-database-backend
+        run: cargo test
