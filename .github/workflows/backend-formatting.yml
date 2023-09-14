@@ -16,10 +16,13 @@ jobs:
         with:
           toolchain: stable
           components: clippy, rustfmt
-
       - name: Run rustfmt using cargo
         working-directory: dtm-database-backend
         run: cargo fmt
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: backend's code formatted by rust-formatting CI
 
   run-cargo-test:
     runs-on: ubuntu-latest
