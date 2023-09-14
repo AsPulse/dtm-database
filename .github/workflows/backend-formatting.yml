@@ -1,9 +1,7 @@
-name: rust-formatting
+name: rust
 
 on:
-  push:
-  pull_request:
-  workflow_dispatch:
+  [pull_request]
 
 jobs:
   run-rustfmt:
