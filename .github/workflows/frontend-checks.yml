@@ -3,7 +3,7 @@ name: frontend-checks
 on: [pull_request]
 
 jobs:
-  format-and-lint:
+  run-format:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -19,5 +19,20 @@ jobs:
         run: pnpm install
       - name: Format
         run: pnpm format:check
+
+  run-lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dtm-database-frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install dependencies
+        run: pnpm install
       - name: Lint
         run: pnpm lint
