@@ -14,7 +14,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          package_json_file: ./dtm-database-frontend/package.json
       - name: Install dependencies
         run: pnpm install
       - name: Format
