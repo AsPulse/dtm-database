@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ..:/app:delegated
+      - /app/dtm-database-frontend/.next
+      - /app/dtm-database-frontend/node_modules
+      - /app/.pnpm-store
+    tty: true
+    stdin_open: true
