@@ -1,5 +1,3 @@
 export default function Home(): JSX.Element {
-  return (
-    <h1>わーい</h1>
-  );
+  return <h1>わーい</h1>;
 }
