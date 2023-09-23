@@ -1,3 +1,4 @@
+import { KumaRegistry } from '@kuma-ui/next-plugin/registry';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,5 +10,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }): JSX.Element {
-  return <html lang='en'>{children}</html>;
+  return (
+    <html lang='en'>
+      <body>
+        <KumaRegistry>{children}</KumaRegistry>
+      </body>
+    </html>
+  );
 }

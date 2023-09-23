@@ -10,8 +10,11 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@kuma-ui/core": "^1.4.1",
+    "@kuma-ui/vite": "^1.1.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.4",
