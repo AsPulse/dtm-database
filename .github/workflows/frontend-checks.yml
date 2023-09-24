@@ -12,9 +12,9 @@ jobs:
         working-directory: ./dtm-database-frontend
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.0
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598 # v2.4.0
         with:
           package_json_file: ./dtm-database-frontend/package.json
       - name: Install dependencies
@@ -29,9 +29,9 @@ jobs:
         working-directory: ./dtm-database-frontend
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.0
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598 # v2.4.0
         with:
           package_json_file: ./dtm-database-frontend/package.json
       - name: Install dependencies
