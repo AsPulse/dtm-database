@@ -43,10 +43,10 @@ importers:
         specifier: 17.0.45
         version: 17.0.45
       '@types/react':
-        specifier: ^18.0.22
+        specifier: 18.2.5
         version: 18.2.5
       '@types/react-dom':
-        specifier: ^18.0.7
+        specifier: 18.2.3
         version: 18.2.3
       eslint-config-custom:
         specifier: workspace:*
@@ -95,10 +95,10 @@ importers:
         specifier: 0.2.1
         version: 0.2.1
       '@types/react':
-        specifier: ^18.2.15
+        specifier: 18.2.22
         version: 18.2.22
       '@types/react-dom':
-        specifier: ^18.2.7
+        specifier: 18.2.7
         version: 18.2.7
       '@typescript-eslint/eslint-plugin':
         specifier: 6.5.0
@@ -154,10 +154,10 @@ importers:
         specifier: 20.5.2
         version: 20.5.2
       '@types/react':
-        specifier: ^18.2.0
+        specifier: 18.2.5
         version: 18.2.5
       '@types/react-dom':
-        specifier: ^18.2.0
+        specifier: 18.2.3
         version: 18.2.3
       eslint-config-custom:
         specifier: workspace:*
