@@ -9,7 +9,8 @@
     ":label(renovate)",
     ":maintainLockFilesWeekly",
     ":prHourlyLimitNone",
-    ":rebaseStalePrs"
+    ":rebaseStalePrs",
+    "npm:unpublishSafe"
   ],
   "automergeStrategy": "squash",
   "assignAutomerge": true,
