@@ -8,14 +8,14 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "eslint": "^8.48.0",
-    "prettier": "^3.0.3",
+    "eslint": "8.48.0",
+    "prettier": "3.0.3",
     "tsconfig": "workspace:*",
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.6.10",
   "name": "dtm-database-frontend",
   "dependencies": {
-    "@kuma-ui/core": "^1.4.1"
+    "@kuma-ui/core": "1.4.1"
   }
 }
