@@ -25,7 +25,7 @@ importers:
         specifier: latest
         version: 1.10.14
 
-  apps/storybook:
+  apps/stories:
     dependencies:
       '@kuma-ui/core':
         specifier: 1.4.1
