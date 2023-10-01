@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@kuma-ui/next-plugin": "1.1.9",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -16,7 +17,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "13.4.19",
-    "@types/node": "17.0.45",
+    "@types/node": "20.5.2",
     "@types/react": "18.2.5",
     "@types/react-dom": "18.2.3",
     "eslint-config-custom": "workspace:*",
