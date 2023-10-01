@@ -11,11 +11,11 @@
   "name": "dtm-database-frontend",
   "dependencies": {
     "@kuma-ui/core": "1.4.1",
-    "@manypkg/cli": "^0.21.0",
+    "@manypkg/cli": "0.21.0",
     "eslint": "8.50.0",
     "prettier": "3.0.3",
     "tsconfig": "workspace:*",
-    "turbo": "^1.10.14"
+    "turbo": "1.10.14"
   },
   "manypkg": {
     "ignoredRules": [
