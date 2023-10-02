@@ -1,5 +1,5 @@
 use axum::{routing::get, Router};
-use std::net::{IpAddr, Ipv4Addr, SocketAddr};
+use std::net::{Ipv4Addr, SocketAddr};
 
 const DEFAULT_PORT: u16 = 3001;
 const PORT_ENV: &str = "PORT";
@@ -7,9 +7,7 @@ const PORT_ENV: &str = "PORT";
 #[tokio::main]
 async fn main() {
   // set port, ipv4, and socket.
-  let port: u16 = get_port(PORT_ENV);
-  let ipv4: Ipv4Addr = Ipv4Addr::UNSPECIFIED;
-  let socket_v4: SocketAddr = SocketAddr::new(IpAddr::V4(ipv4), port);
+  let socket_v4: SocketAddr = SocketAddr::from((Ipv4Addr::UNSPECIFIED, get_port(PORT_ENV)));
 
   // build our application with a single route
   let app = Router::new().route("/", get(|| async { "Hello, World!" }));
