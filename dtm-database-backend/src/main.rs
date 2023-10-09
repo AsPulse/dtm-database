@@ -1,8 +1,10 @@
 use axum::{routing::get, Router};
 use std::net::{Ipv4Addr, SocketAddr};
+use utoipa::OpenApi;
 
 const DEFAULT_PORT: u16 = 3001;
 const PORT_ENV: &str = "PORT";
+const VERSION: &str = "0.0.1";
 
 #[tokio::main]
 async fn main() {
@@ -10,7 +12,9 @@ async fn main() {
   let socket_v4: SocketAddr = SocketAddr::from((Ipv4Addr::UNSPECIFIED, get_port(PORT_ENV)));
 
   // build our application with a single route
-  let app = Router::new().route("/", get(|| async { "Hello, World!" }));
+  let app = Router::new()
+    .route("/", get(|| async { "Hello, World!" }))
+    .route("/version", get(version));
 
   // run it with hyper on localhost:3000
   axum::Server::bind(&socket_v4)
@@ -32,6 +36,19 @@ fn get_port(port_env: &str) -> u16 {
     }
   }
 }
+
+#[utoipa::path(
+  get,
+  path = "/version",
+)]
+async fn version() -> &'static str {
+  VERSION
+}
+
+#[derive(OpenApi)]
+#[openapi(
+)]
+struct ApiDoc;
 
 #[cfg(test)]
 mod test {
