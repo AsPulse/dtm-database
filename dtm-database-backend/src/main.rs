@@ -1,6 +1,7 @@
 use axum::{routing::get, Router};
 use std::net::{Ipv4Addr, SocketAddr};
 use utoipa::OpenApi;
+use utoipa_swagger_ui::SwaggerUi;
 
 const DEFAULT_PORT: u16 = 3001;
 const PORT_ENV: &str = "PORT";
@@ -13,6 +14,7 @@ async fn main() {
 
   // build our application with a single route
   let app = Router::new()
+    .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi()))
     .route("/", get(hello))
     .route("/version", get(version));
 
@@ -37,29 +39,18 @@ fn get_port(port_env: &str) -> u16 {
   }
 }
 
-#[utoipa::path(
-  get,
-  path = "/",
-)]
+#[utoipa::path(get, path = "/", responses((status = 200, description = "correctly accessed")))]
 async fn hello() -> &'static str {
   "Hello, World!"
 }
 
-#[utoipa::path(
-  get,
-  path = "/version",
-)]
+#[utoipa::path(get, path = "/version", responses((status = 200, description = "correctly accessed")))]
 async fn version() -> &'static str {
   VERSION
 }
 
 #[derive(OpenApi)]
-#[openapi(
-  paths(
-    hello,
-    version,
-  )
-)]
+#[openapi(paths(hello, version))]
 struct ApiDoc;
 
 #[cfg(test)]
