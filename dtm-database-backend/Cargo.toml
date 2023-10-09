@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 axum = "=0.6.20"
 tokio = { version = "=1.32.0", features = ["macros", "rt-multi-thread"] }
-utopia = "=0.0.1"
+utoipa = "=4.0.0"
