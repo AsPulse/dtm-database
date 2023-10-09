@@ -13,7 +13,7 @@ async fn main() {
 
   // build our application with a single route
   let app = Router::new()
-    .route("/", get(|| async { "Hello, World!" }))
+    .route("/", get(hello))
     .route("/version", get(version));
 
   // run it with hyper on localhost:3000
@@ -39,6 +39,14 @@ fn get_port(port_env: &str) -> u16 {
 
 #[utoipa::path(
   get,
+  path = "/",
+)]
+async fn hello() -> &'static str {
+  "Hello, World!"
+}
+
+#[utoipa::path(
+  get,
   path = "/version",
 )]
 async fn version() -> &'static str {
@@ -47,6 +55,10 @@ async fn version() -> &'static str {
 
 #[derive(OpenApi)]
 #[openapi(
+  paths(
+    hello,
+    version,
+  )
 )]
 struct ApiDoc;
 
