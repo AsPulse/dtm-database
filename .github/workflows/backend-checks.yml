@@ -31,7 +31,7 @@ jobs:
           toolchain: stable
           components: clippy, rustfmt
 
-      - name: Run cargo-test using cargo
+      - name: Run cargo-test
         working-directory: dtm-database-backend
         run: cargo test
 
@@ -46,6 +46,6 @@ jobs:
           toolchain: stable
           components: clippy, rustfmt
 
-      - name: Run cargo-test using cargo
+      - name: Run cargo-clippy -Dwarning
         working-directory: dtm-database-backend
         run: cargo clippy -- -Dwarnings
