@@ -48,14 +48,11 @@ async fn main() {
   // build our application with a single route
   let app = match booting_mode {
     BootingModes::Debug => Router::new()
-      .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi()))
-      .route("/", get(hello))
-      .route("/version", get(version)),
-
-    BootingModes::Release => Router::new()
-      .route("/", get(hello))
-      .route("/version", get(version)),
-  };
+      .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi())),
+    BootingModes::Release => Router::new(),
+  }
+  .route("/", get(hello))
+  .route("/version", get(version));
 
   // run it with hyper on localhost:3000
   axum::Server::bind(&socket_v4)
