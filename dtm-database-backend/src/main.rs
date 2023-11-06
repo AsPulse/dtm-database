@@ -6,7 +6,7 @@ use utoipa_swagger_ui::SwaggerUi;
 const DEFAULT_PORT: u16 = 3001;
 const PORT_ENV: &str = "PORT";
 const DEFAULT_MODE: BootingModes = BootingModes::Debug;
-const MODE_ENV: &str = "MODE";
+const MODE_ENV: &str = "ENV";
 const DEBUG: &str = "DEBUG";
 const RELEASE: &str = "RELEASE";
 const VERSION: &str = "0.0.1";
