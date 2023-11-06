@@ -67,7 +67,6 @@ fn get_booting_mode(mode_env: &str) -> BootingModes {
   match std::env::var(mode_env) {
     Ok(value) => value.parse::<BootingModes>().unwrap(),
     Err(error) => {
-      println!("WARNING: {}. Using default mode, {}", error, DEFAULT_MODE);
       DEFAULT_MODE
     }
   }
@@ -81,7 +80,6 @@ fn get_port(port_env: &str) -> u16 {
       .parse::<u16>()
       .expect("PORT environment variable should be u16, between 0 and 65535"),
     Err(error) => {
-      println!("WARNING: {}. Using default port, {}", error, DEFAULT_PORT);
       DEFAULT_PORT
     }
   }
