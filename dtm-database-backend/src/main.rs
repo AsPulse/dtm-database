@@ -65,10 +65,7 @@ async fn main() {
 /// this function is not pure, and write out message to stdout.
 fn get_booting_mode(mode_env: &str) -> BootingModes {
   match std::env::var(mode_env) {
-    Ok(value) => match value.parse::<BootingModes>().unwrap() {
-      BootingModes::Debug => BootingModes::Debug,
-      BootingModes::Release => BootingModes::Release,
-    },
+    Ok(value) => value.parse::<BootingModes>().unwrap(),
     Err(error) => {
       println!("WARNING: {}. Using default mode, {}", error, DEFAULT_MODE);
       DEFAULT_MODE
