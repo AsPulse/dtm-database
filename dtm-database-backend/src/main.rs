@@ -8,20 +8,20 @@ const PORT_ENV: &str = "PORT";
 const DEFAULT_MODE: BootingModes = BootingModes::Debug;
 const MODE_ENV: &str = "ENV";
 const DEBUG: &str = "DEBUG";
-const RELEASE: &str = "RELEASE";
+const PRODUCTION: &str = "PRODUCTION";
 const VERSION: &str = "0.0.1";
 
 #[derive(Debug, PartialEq)]
 enum BootingModes {
   Debug,
-  Release,
+  Production,
 }
 
 impl std::fmt::Display for BootingModes {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     match self {
       BootingModes::Debug => write!(f, "{}", DEBUG),
-      BootingModes::Release => write!(f, "{}", RELEASE),
+      BootingModes::Production => write!(f, "{}", PRODUCTION),
     }
   }
 }
@@ -32,7 +32,7 @@ impl std::str::FromStr for BootingModes {
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     match s {
       DEBUG => Ok(BootingModes::Debug),
-      RELEASE => Ok(BootingModes::Release),
+      PRODUCTION => Ok(BootingModes::Production),
       _ => Err("Unknown mode found"),
     }
   }
@@ -49,7 +49,7 @@ async fn main() {
   let app = match booting_mode {
     BootingModes::Debug => Router::new()
       .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi())),
-    BootingModes::Release => Router::new(),
+    BootingModes::Production => Router::new(),
   }
   .route("/", get(hello))
   .route("/version", get(version));
