@@ -1,18 +1,12 @@
-use axum::{routing::get, Router};
-use std::net::{Ipv4Addr, SocketAddr};
-use utoipa::OpenApi;
-use utoipa_swagger_ui::SwaggerUi;
-
-const DEFAULT_PORT: u16 = 3001;
-const PORT_ENV: &str = "PORT";
-const DEFAULT_MODE: BootingModes = BootingModes::Debug;
-const MODE_ENV: &str = "ENV";
+pub const PORT_ENV: &str = "PORT";
+pub const MODE_ENV: &str = "ENV";
 const DEBUG: &str = "DEBUG";
 const PRODUCTION: &str = "PRODUCTION";
-const VERSION: &str = "0.0.1";
+pub const DEFAULT_PORT: u16 = 3001;
+pub const DEFAULT_MODE: BootingModes = BootingModes::Debug;
 
 #[derive(Debug, PartialEq)]
-enum BootingModes {
+pub enum BootingModes {
   Debug,
   Production,
 }
@@ -38,32 +32,9 @@ impl std::str::FromStr for BootingModes {
   }
 }
 
-#[tokio::main]
-async fn main() {
-  // set port, ipv4, and socket.
-  let socket_v4: SocketAddr = SocketAddr::from((Ipv4Addr::UNSPECIFIED, get_port(PORT_ENV)));
-  // set booting mode.
-  let booting_mode: BootingModes = get_booting_mode(MODE_ENV);
-
-  // build our application with a single route
-  let app = match booting_mode {
-    BootingModes::Debug => Router::new()
-      .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi())),
-    BootingModes::Production => Router::new(),
-  }
-  .route("/", get(hello))
-  .route("/version", get(version));
-
-  // run it with hyper on localhost:3000
-  axum::Server::bind(&socket_v4)
-    .serve(app.into_make_service())
-    .await
-    .unwrap();
-}
-
 /// A booting mode getter for this server which is hyper.
 /// this function is not pure, and write out message to stdout.
-fn get_booting_mode(mode_env: &str) -> BootingModes {
+pub fn get_booting_mode(mode_env: &str) -> BootingModes {
   match std::env::var(mode_env) {
     Ok(value) => value.parse::<BootingModes>().unwrap(),
     Err(_) => DEFAULT_MODE,
@@ -72,7 +43,7 @@ fn get_booting_mode(mode_env: &str) -> BootingModes {
 
 /// A port getter for this server which is hyper.
 /// this function is not pure, and write out message to stdout.
-fn get_port(port_env: &str) -> u16 {
+pub fn get_port(port_env: &str) -> u16 {
   match std::env::var(port_env) {
     Ok(value) => value
       .parse::<u16>()
@@ -81,23 +52,9 @@ fn get_port(port_env: &str) -> u16 {
   }
 }
 
-#[utoipa::path(get, path = "/", responses((status = 200, description = "correctly accessed")))]
-async fn hello() -> &'static str {
-  "Hello, World!"
-}
-
-#[utoipa::path(get, path = "/version", responses((status = 200, description = "correctly accessed")))]
-async fn version() -> &'static str {
-  VERSION
-}
-
-#[derive(OpenApi)]
-#[openapi(paths(hello, version))]
-struct ApiDoc;
-
 #[cfg(test)]
 mod test {
-  use crate::{
+  use crate::env::{
     get_booting_mode, get_port, BootingModes, DEFAULT_MODE, DEFAULT_PORT, MODE_ENV, PORT_ENV,
   };
 
