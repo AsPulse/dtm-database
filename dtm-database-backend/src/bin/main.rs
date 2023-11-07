@@ -1,11 +1,5 @@
 extern crate dtm_database_backend;
-use dtm_database_backend::env::{
-  BootingModes,
-  MODE_ENV,
-  PORT_ENV,
-  get_booting_mode,
-  get_port,
-};
+use dtm_database_backend::env::{get_booting_mode, get_port, BootingModes, MODE_ENV, PORT_ENV};
 
 use axum::{routing::get, Router};
 use std::net::{Ipv4Addr, SocketAddr};
@@ -50,4 +44,3 @@ async fn version() -> &'static str {
 #[derive(OpenApi)]
 #[openapi(paths(hello, version))]
 struct ApiDoc;
-
