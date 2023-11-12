@@ -1,7 +1,7 @@
 extern crate dtm_database_backend;
 
 use axum::{routing::get, Router};
-use dtm_database_backend::env::{PORT, ENV, BootingMode};
+use dtm_database_backend::env::{BootingMode, ENV, PORT};
 use std::net::{Ipv4Addr, SocketAddr};
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
@@ -23,10 +23,11 @@ async fn main() {
   .route("/version", get(version));
 
   // run it with hyper on localhost:3000
-  axum::Server::bind(&socket_v4)
-    .serve(app.into_make_service())
-    .await
-    .unwrap();
+  let server = axum::Server::bind(&socket_v4).serve(app.into_make_service());
+
+  println!("Listening on {}", socket_v4);
+
+  server.await.unwrap();
 }
 
 #[utoipa::path(get, path = "/", responses((status = 200, description = "correctly accessed")))]

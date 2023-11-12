@@ -7,22 +7,17 @@ const PRODUCTION: &str = "PRODUCTION";
 pub const DEFAULT_PORT: u16 = 3001;
 pub const DEFAULT_MODE: BootingMode = BootingMode::Debug;
 
-pub const ENV: Lazy<BootingMode> = Lazy::new(|| {
-  match std::env::var(MODE_ENV) {
-    Ok(value) => value.parse::<BootingMode>().unwrap(),
-    Err(_) => DEFAULT_MODE,
-  }
+pub static ENV: Lazy<BootingMode> = Lazy::new(|| match std::env::var(MODE_ENV) {
+  Ok(value) => value.parse::<BootingMode>().unwrap(),
+  Err(_) => DEFAULT_MODE,
 });
 
-pub const PORT: Lazy<u16> = Lazy::new(|| {
-  match std::env::var(PORT_ENV) {
-    Ok(value) => value
-      .parse::<u16>()
-      .expect("PORT environment variable should be u16, between 0 and 65535"),
-    Err(_) => DEFAULT_PORT,
-  }
+pub static PORT: Lazy<u16> = Lazy::new(|| match std::env::var(PORT_ENV) {
+  Ok(value) => value
+    .parse::<u16>()
+    .expect("PORT environment variable should be u16, between 0 and 65535"),
+  Err(_) => DEFAULT_PORT,
 });
-
 
 #[derive(Debug, PartialEq)]
 pub enum BootingMode {
@@ -50,4 +45,3 @@ impl std::str::FromStr for BootingMode {
     }
   }
 }
-
