@@ -55,3 +55,23 @@ jobs:
         run: pnpm install
       - name: Lint
         run: pnpm lint
+
+  run-chromatic:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dtm-database-frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
+      - name: Install pnpm
+        uses: pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598 # v2.4.0
+        with:
+          package_json_file: ./dtm-database-frontend/package.json
+      - name: Install dependencies
+        run: pnpm install
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: ./dtm-database-frontend/apps/stories

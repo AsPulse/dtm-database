@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "dev": "storybook dev -p 6006 --ci",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --exit-zero-on-changes"
+    "chromatic": "npx chromatic"
   },
   "dependencies": {
     "@kuma-ui/babel-plugin": "^1.1.12",
