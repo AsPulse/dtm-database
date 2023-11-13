@@ -1,7 +1,7 @@
 import { css } from '@kuma-ui/core';
 
 const title = css`
-  color: red;
+  color: blue;
 `;
 
 export function Title(): JSX.Element {
