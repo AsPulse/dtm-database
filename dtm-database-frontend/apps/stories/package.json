@@ -29,7 +29,7 @@
     "@storybook/cli": "7.5.3",
     "@storybook/react": "7.5.3",
     "@storybook/react-vite": "7.5.3",
-    "@storybook/testing-library": "0.2.1",
+    "@storybook/testing-library": "0.2.2",
     "@types/react": "18.2.23",
     "@types/react-dom": "18.2.8",
     "@typescript-eslint/eslint-plugin": "6.5.0",
