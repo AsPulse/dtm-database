@@ -127,8 +127,8 @@ importers:
   apps/web:
     dependencies:
       '@kuma-ui/next-plugin':
-        specifier: 1.1.12
-        version: 1.1.12(@babel/core@7.23.3)(@types/react@18.2.37)(next@14.0.2)(react@18.2.0)(webpack@5.89.0)
+        specifier: 1.1.13
+        version: 1.1.13(@babel/core@7.23.3)(@types/react@18.2.37)(next@14.0.2)(react@18.2.0)(webpack@5.89.0)
       next:
         specifier: 14.0.2
         version: 14.0.2(@babel/core@7.23.3)(react-dom@18.2.0)(react@18.2.0)
@@ -2180,8 +2180,8 @@ packages:
       stylis: 4.3.0
     dev: false
 
-  /@kuma-ui/next-plugin@1.1.12(@babel/core@7.23.3)(@types/react@18.2.37)(next@14.0.2)(react@18.2.0)(webpack@5.89.0):
-    resolution: {integrity: sha512-69H9ROUaGoeb1owNquSE5f/1XUksEp37DBe17WCjVVSDJavJSAOAsl7bpfICVvUg12rBCeoyQYX11yX6UA/xug==}
+  /@kuma-ui/next-plugin@1.1.13(@babel/core@7.23.3)(@types/react@18.2.37)(next@14.0.2)(react@18.2.0)(webpack@5.89.0):
+    resolution: {integrity: sha512-69lP8tuF7+741F5TG2gCBRkOjDV24B6LVjHXNW7uOpX34gDiWN4LWk20eCWvTGiL0KqJAWumDWBuxGWq7OjMRw==}
     peerDependencies:
       '@types/react': ^18.0.32
       next: '>=13.4.5'
