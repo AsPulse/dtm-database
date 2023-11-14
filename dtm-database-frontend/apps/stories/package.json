@@ -43,7 +43,7 @@
     "prop-types": "15.8.1",
     "storybook": "7.5.3",
     "typescript": "5.2.2",
-    "vite": "4.4.9"
+    "vite": "4.5.0"
   },
   "readme": "ERROR: No README data found!",
   "_id": "stories@0.0.0"
