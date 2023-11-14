@@ -19,5 +19,12 @@
   "commitMessageAction": "[deps] Update",
   "dependencyDashboardAutoclose": true,
   "prConcurrentLimit": 3,
-  "reviewersFromCodeOwners": true
+  "reviewersFromCodeOwners": true,
+  "packageRules": [
+    {
+      "matchSourceUrls": ["https://github.com/kuma-ui/kuma-ui"],
+      "groupName": "kuma-ui monorepo",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+    }
+  ]
 }
