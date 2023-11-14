@@ -109,8 +109,8 @@ importers:
         specifier: 0.4.4
         version: 0.4.4(eslint@8.53.0)
       eslint-plugin-storybook:
-        specifier: 0.6.14
-        version: 0.6.14(eslint@8.53.0)(typescript@5.2.2)
+        specifier: 0.6.15
+        version: 0.6.15(eslint@8.53.0)(typescript@5.2.2)
       prop-types:
         specifier: 15.8.1
         version: 15.8.1
@@ -6810,8 +6810,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-storybook@0.6.14(eslint@8.53.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-IeYigPur/MvESNDo43Z+Z5UvlcEVnt0dDZmnw1odi9X2Th1R3bpGyOZsHXb9bp1pFecOpRUuoMG5xdID2TwwOg==}
+  /eslint-plugin-storybook@0.6.15(eslint@8.53.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-lAGqVAJGob47Griu29KXYowI4G7KwMoJDOkEip8ujikuDLxU+oWJ1l0WL6F2oDO4QiyUFXvtDkEkISMOPzo+7w==}
     engines: {node: 12.x || 14.x || >= 16}
     peerDependencies:
       eslint: '>=6'
