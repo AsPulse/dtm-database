@@ -10,13 +10,13 @@
   },
   "dependencies": {
     "@kuma-ui/next-plugin": "1.1.9",
-    "next": "13.4.19",
+    "next": "14.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "ui": "workspace:*"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "13.4.19",
+    "@next/eslint-plugin-next": "14.0.2",
     "@types/node": "20.7.1",
     "@types/react": "18.2.23",
     "@types/react-dom": "18.2.8",
