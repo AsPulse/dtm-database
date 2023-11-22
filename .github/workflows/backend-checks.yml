@@ -52,3 +52,18 @@ jobs:
       - name: Run cargo-clippy -Dwarning
         working-directory: dtm-database-backend
         run: cargo clippy -- -Dwarnings
+
+  run-schema-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Install rust-toolchain
+        uses: dtolnay/rust-toolchain@439cf607258077187679211f12aa6f19af4a0af7 # master
+        with:
+          toolchain: stable
+          components: clippy, rustfmt
+
+      - name: Run Schema Update
+        working-directory: dtm-database-backend
+        run: cargo run -- --frozen-schema --only-schema-checking
