@@ -1,15 +1,18 @@
 extern crate dtm_database_backend;
 
 use axum::{routing::get, Router};
-use dtm_database_backend::{env::{BootingMode, ENV, PORT}, openapi::ApiDoc, routes::version::{hello, version}};
+use dtm_database_backend::{env::{BootingMode, ENV, PORT}, openapi::{ApiDoc, schema_validation}, routes::version::{hello, version}};
 use utoipa::OpenApi;
 use std::net::{Ipv4Addr, SocketAddr};
+
 use utoipa_swagger_ui::SwaggerUi;
 
 #[tokio::main]
 async fn main() {
   // set port, ipv4, and socket.
   let socket_v4: SocketAddr = SocketAddr::from((Ipv4Addr::UNSPECIFIED, *PORT));
+
+  schema_validation(false);
 
   // build our application with a single route
   let app = match *ENV {
