@@ -13,7 +13,7 @@ async fn main() {
   let socket_v4: SocketAddr = SocketAddr::from((Ipv4Addr::UNSPECIFIED, *PORT));
 
   let frozen_schema = *ENV == BootingMode::Production || env::args().any(|arg| arg == "--frozen-schema");
-  let only_check_schema = env::args().any(|arg| arg == "--only-check-schema");
+  let only_schema_checking = env::args().any(|arg| arg == "--only-schema-checking");
   if schema_validation(frozen_schema) {
     println!(
     "{}",
@@ -25,7 +25,7 @@ async fn main() {
     }
   }
 
-  if only_check_schema {
+  if only_schema_checking {
     return;
   }
 
