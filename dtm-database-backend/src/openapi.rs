@@ -9,17 +9,25 @@ const OPENAPI_SCHEMA_IN_FILE: &str = include_str!("../../openapi.json");
 /// If they are equal, returns true. Otherwise, returns false.
 /// If `frozen` is false, the generated schema will be written to the file.
 pub fn schema_validation(frozen: bool) -> bool {
-  let true_schema = ApiDoc::openapi().to_json().expect("Failed to convert OpenAPI to JSON.");
+  let true_schema = ApiDoc::openapi()
+    .to_json()
+    .expect("Failed to convert OpenAPI to JSON.");
 
   if openapi_schema_equal(&true_schema, OPENAPI_SCHEMA_IN_FILE) {
     true
   } else {
     if !frozen {
-      let schema_file = env::current_dir().ok().and_then(|p| p.parent().map(|p| p.to_path_buf())).map(|p| p.join("openapi.json"));
+      let schema_file = env::current_dir()
+        .ok()
+        .and_then(|p| p.parent().map(|p| p.to_path_buf()))
+        .map(|p| p.join("openapi.json"));
       if let Some(schema_file) = schema_file {
         match std::fs::write(&schema_file, true_schema) {
           Ok(_) => {
-            println!("Successfully update OpenAPI schema written in a file: {:?}", &schema_file);
+            println!(
+              "Successfully update OpenAPI schema written in a file: {:?}",
+              &schema_file
+            );
           }
           Err(e) => {
             eprintln!("Failed to write OpenAPI schema to file: {:?}", e);
@@ -31,7 +39,6 @@ pub fn schema_validation(frozen: bool) -> bool {
     }
     false
   }
-
 }
 
 /// Returns `true` if two OpenAPI schemas given as a JSON string are equal.
