@@ -1,12 +1,10 @@
 extern crate dtm_database_backend;
 
 use axum::{routing::get, Router};
-use dtm_database_backend::env::{BootingMode, ENV, PORT};
-use std::net::{Ipv4Addr, SocketAddr};
+use dtm_database_backend::{env::{BootingMode, ENV, PORT}, openapi::ApiDoc, routes::version::{hello, version}};
 use utoipa::OpenApi;
+use std::net::{Ipv4Addr, SocketAddr};
 use utoipa_swagger_ui::SwaggerUi;
-
-const VERSION: &str = "0.0.1";
 
 #[tokio::main]
 async fn main() {
@@ -29,17 +27,3 @@ async fn main() {
 
   server.await.unwrap();
 }
-
-#[utoipa::path(get, path = "/", responses((status = 200, description = "correctly accessed")))]
-async fn hello() -> &'static str {
-  "Hello, World!"
-}
-
-#[utoipa::path(get, path = "/version", responses((status = 200, description = "correctly accessed")))]
-async fn version() -> &'static str {
-  VERSION
-}
-
-#[derive(OpenApi)]
-#[openapi(paths(hello, version))]
-struct ApiDoc;

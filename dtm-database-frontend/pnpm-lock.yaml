@@ -164,6 +164,8 @@ importers:
         specifier: 5.2.2
         version: 5.2.2
 
+  devserver/backend-http: {}
+
   packages/eslint-config-custom:
     devDependencies:
       '@vercel/style-guide':
