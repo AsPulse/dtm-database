@@ -3,7 +3,7 @@ extern crate dtm_database_backend;
 use axum::{routing::get, Router};
 use dtm_database_backend::{env::{BootingMode, ENV, PORT}, openapi::{ApiDoc, schema_validation}, routes::version::{hello, version}};
 use utoipa::OpenApi;
-use std::net::{Ipv4Addr, SocketAddr};
+use std::{net::{Ipv4Addr, SocketAddr}, env};
 
 use utoipa_swagger_ui::SwaggerUi;
 
@@ -12,7 +12,22 @@ async fn main() {
   // set port, ipv4, and socket.
   let socket_v4: SocketAddr = SocketAddr::from((Ipv4Addr::UNSPECIFIED, *PORT));
 
-  schema_validation(false);
+  let frozen_schema = *ENV == BootingMode::Production || env::args().any(|arg| arg == "--frozen-schema");
+  let only_check_schema = env::args().any(|arg| arg == "--only-check-schema");
+  if schema_validation(frozen_schema) {
+    println!(
+    "{}",
+      if frozen_schema { "OpenAPI schema validation passed." } else { "There are no updates to the OpenAPI schema." }
+    );
+  } else {
+    if frozen_schema {
+      panic!("OpenAPI schema is different the one in file! Try without --frozen-schema to update schema.");
+    }
+  }
+
+  if only_check_schema {
+    return;
+  }
 
   // build our application with a single route
   let app = match *ENV {
