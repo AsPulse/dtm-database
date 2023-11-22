@@ -8,7 +8,7 @@ const OPENAPI_SCHEMA_IN_FILE: &str = include_str!("../../openapi.json");
 /// Check whether the generated schema and the schema in file are equal or not.
 /// If they are equal, returns true. Otherwise, returns false.
 /// If `frozen` is false, the generated schema will be written to the file.
-pub fn schema_validation(frozen: bool) -> bool {
+pub fn is_schema_valid(frozen: bool) -> bool {
   let true_schema = ApiDoc::openapi()
     .to_json()
     .expect("Failed to convert OpenAPI to JSON.");

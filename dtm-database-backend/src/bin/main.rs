@@ -3,7 +3,7 @@ extern crate dtm_database_backend;
 use axum::{routing::get, Router};
 use dtm_database_backend::{
   env::{BootingMode, ENV, PORT},
-  openapi::{schema_validation, ApiDoc},
+  openapi::{is_schema_valid, ApiDoc},
   routes::version::{hello, version},
 };
 use std::{
@@ -22,7 +22,7 @@ async fn main() {
   let frozen_schema =
     *ENV == BootingMode::Production || env::args().any(|arg| arg == "--frozen-schema");
   let only_schema_checking = env::args().any(|arg| arg == "--only-schema-checking");
-  if schema_validation(frozen_schema) {
+  if is_schema_valid(frozen_schema) {
     println!(
       "{}",
       if frozen_schema {
