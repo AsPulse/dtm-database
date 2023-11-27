@@ -9,16 +9,16 @@
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
-    "@turbo/gen": "1.10.14",
-    "@types/node": "20.7.1",
-    "@types/react": "18.2.23",
-    "@types/react-dom": "18.2.8",
+    "@turbo/gen": "1.10.16",
+    "@types/node": "20.9.0",
+    "@types/react": "18.2.37",
+    "@types/react-dom": "18.2.15",
     "eslint-config-custom": "workspace:*",
     "react": "18.2.0",
     "tsconfig": "workspace:*"
   },
   "dependencies": {
-    "@kuma-ui/core": "1.4.1",
+    "@kuma-ui/core": "1.5.3",
     "typescript": "5.2.2"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "name": "backend-http",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "cargo watch -C ../../../dtm-database-backend -x run"
+  }
+}
