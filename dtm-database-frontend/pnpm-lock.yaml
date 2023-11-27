@@ -29,6 +29,9 @@ importers:
 
   apps/stories:
     dependencies:
+      '@kuma-ui/vite':
+        specifier: ^1.2.0
+        version: 1.2.0(@types/react@18.2.23)(react@18.2.0)(vite@4.4.9)
       esbuild:
         specifier: 0.19.5
         version: 0.19.5
@@ -2179,12 +2182,40 @@ packages:
       - supports-color
     dev: false
 
+  /@kuma-ui/babel-plugin@1.1.13(@types/react@18.2.23)(react@18.2.0):
+    resolution: {integrity: sha512-S/Y+C7F0AsMVYH45hvUHvHNdARTgMtgidNvJjc3rOy1zLfk16m37/niZQuKY3+wzYL3eJYh2C8ahA5E/X6dGcw==}
+    dependencies:
+      '@babel/core': 7.23.3
+      '@kuma-ui/compiler': 1.2.4(@types/react@18.2.23)(react@18.2.0)
+      '@kuma-ui/core': 1.5.4(@types/react@18.2.23)(react@18.2.0)
+      '@kuma-ui/sheet': 1.3.0
+      '@kuma-ui/system': 1.7.1
+    transitivePeerDependencies:
+      - '@types/react'
+      - next
+      - react
+      - supports-color
+    dev: false
+
   /@kuma-ui/compiler@1.2.3(@types/react@18.2.23)(next@14.0.2)(react@18.2.0):
     resolution: {integrity: sha512-KxjlRPYZ4C2i7MdM40zvuKSKDHWU4JLGf7yg1uQumjLra8K7oCTjSNdHQGcECwxY22h8y+werE01IWbEku4P/A==}
     dependencies:
       '@kuma-ui/core': 1.5.3(@types/react@18.2.23)(next@14.0.2)(react@18.2.0)
       '@kuma-ui/sheet': 1.3.0
       '@kuma-ui/system': 1.7.0
+      ts-morph: 19.0.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - next
+      - react
+    dev: false
+
+  /@kuma-ui/compiler@1.2.4(@types/react@18.2.23)(react@18.2.0):
+    resolution: {integrity: sha512-SEhDVd1VgzeeKcqiNwAQK3AyjwhgjVKPrcD+yoR2R5E0VHAHGKbsIuL/0A2PlhxC+VtOzN663PSWRCLfRbzIfw==}
+    dependencies:
+      '@kuma-ui/core': 1.5.4(@types/react@18.2.23)(react@18.2.0)
+      '@kuma-ui/sheet': 1.3.0
+      '@kuma-ui/system': 1.7.1
       ts-morph: 19.0.0
     transitivePeerDependencies:
       - '@types/react'
@@ -2235,6 +2266,26 @@ packages:
       stylis: 4.3.0
     dev: false
 
+  /@kuma-ui/core@1.5.4(@types/react@18.2.23)(react@18.2.0):
+    resolution: {integrity: sha512-9UWFr9+g99NvZZqXfKC2kcHGx8sLYIhaW8dVROz8R+ZO/e0LCnqrgHII0ITE4fLz7bMhZg/B9Kw28fKywYSkOQ==}
+    peerDependencies:
+      '@types/react': ^18.0.32
+      next: '>=13.4.5'
+      react: '>=18.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      next:
+        optional: true
+    dependencies:
+      '@kuma-ui/sheet': 1.3.0
+      '@kuma-ui/system': 1.7.1
+      '@types/react': 18.2.23
+      '@types/stylis': 4.2.1
+      react: 18.2.0
+      stylis: 4.3.0
+    dev: false
+
   /@kuma-ui/next-plugin@1.1.9(@babel/core@7.23.3)(@types/react@18.2.23)(next@14.0.2)(react@18.2.0)(webpack@5.89.0):
     resolution: {integrity: sha512-3i6hCi2nYG5R9d6HnyNG7kLDv3iby/mqr7G80foNPp/xr9XoNMxXyzthatddXlxvdeZiq12lpclLV0FU3iYyzg==}
     peerDependencies:
@@ -2280,6 +2331,31 @@ packages:
     dependencies:
       '@kuma-ui/sheet': 1.3.0
       csstype: 3.1.2
+    dev: false
+
+  /@kuma-ui/system@1.7.1:
+    resolution: {integrity: sha512-ZuZRrXP+d7onFA5fnc+cbFx4V9HHlUxeaiO8GZLgqxKCWbYTuzzOSYGg2ZaBTwrOy9sdGFeki8YnmcMzwv+V1g==}
+    dependencies:
+      '@kuma-ui/sheet': 1.3.0
+      csstype: 3.1.2
+    dev: false
+
+  /@kuma-ui/vite@1.2.0(@types/react@18.2.23)(react@18.2.0)(vite@4.4.9):
+    resolution: {integrity: sha512-LXbDn/bjaROt9Czl3b09+tv7B8nj9KjtCjfFG7m7KhyH/XGCgefegfRX21s8RdvQe/n6kw3Cl39YguWucs/SJA==}
+    peerDependencies:
+      vite: ^4 || ^5
+    dependencies:
+      '@kuma-ui/babel-plugin': 1.1.13(@types/react@18.2.23)(react@18.2.0)
+      '@kuma-ui/sheet': 1.3.0
+      '@kuma-ui/system': 1.7.1
+      esbuild: 0.18.20
+      eval: 0.1.8
+      vite: 4.4.9
+    transitivePeerDependencies:
+      - '@types/react'
+      - next
+      - react
+      - supports-color
     dev: false
 
   /@kuma-ui/webpack-plugin@1.2.1(@types/react@18.2.23)(next@14.0.2)(react@18.2.0)(webpack@5.89.0):
@@ -7341,7 +7417,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind@1.1.1:
@@ -9418,7 +9493,6 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
 
   /postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
@@ -10071,7 +10145,6 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.3
-    dev: true
 
   /run-applescript@5.0.0:
     resolution: {integrity: sha512-XcT5rBksx1QdIhlFOCtgZkB99ZEouFZ1E2Kc2LHqNW13U3/74YGdkQRmThTwxy4QIyookibDKYZOPqX//6BlAg==}
@@ -11306,7 +11379,6 @@ packages:
       rollup: 3.29.2
     optionalDependencies:
       fsevents: 2.3.3
-    dev: true
 
   /walker@1.0.8:
     resolution: {integrity: sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==}
