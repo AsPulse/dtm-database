@@ -9,7 +9,7 @@ on:
 permissions: {}
 
 jobs:
-  orval-validate:
+  orval-validation:
     runs-on: ubuntu-latest
     defaults:
       run:
