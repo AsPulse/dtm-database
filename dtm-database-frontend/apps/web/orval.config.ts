@@ -19,8 +19,8 @@ export default defineConfig({
     },
     hooks: {
       afterAllFilesWrite: [
-        'prettier --write lib/backend.ts',
-        'eslint --fix lib/backend.ts',
+        'prettier --write lib/api/backend.ts',
+        'eslint --fix lib/api/backend.ts',
       ],
     },
   },

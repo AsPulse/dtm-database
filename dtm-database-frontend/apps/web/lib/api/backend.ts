@@ -13,7 +13,7 @@ import type { Key, SWRConfiguration } from 'swr';
 export const hello = (
   options?: AxiosRequestConfig
 ): Promise<AxiosResponse<void>> => {
-  return axios.get(`/`, options);
+  return axios.get(`/a`, options);
 };
 
 export const getHelloKey = () => [`/`] as const;
