@@ -4,15 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "orval": "orval",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@kuma-ui/next-plugin": "1.1.13",
+    "axios": "^1.6.2",
     "next": "14.0.2",
+    "orval": "^6.21.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "swr": "^2.2.4",
     "ui": "workspace:*"
   },
   "devDependencies": {
