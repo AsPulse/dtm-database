@@ -22,17 +22,18 @@
   "reviewersFromCodeOwners": true,
   "packageRules": [
     {
-      "matchSourceUrls": ["https://github.com/kuma-ui/kuma-ui"],
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
-      "groupName": "kuma-ui monorepo"
-    },
-    {
       "matchFileNames": ["dtm-database-frontend/**/*"],
       "semanticCommitScope": "frontend"
     },
     {
       "matchFileNames": ["dtm-database-backend/**/*"],
       "semanticCommitScope": "backend"
+    },
+    {
+      "matchSourceUrls": ["https://github.com/kuma-ui/kuma-ui"],
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "groupName": "kuma-ui monorepo",
+      "semanticCommitScope": "frontend"
     }
   ]
 }
