@@ -10,6 +10,7 @@
     ":maintainLockFilesWeekly",
     ":prHourlyLimitNone",
     ":rebaseStalePrs",
+    ":semanticCommitTypeAll(deps)",
     "npm:unpublishSafe"
   ],
   "automergeStrategy": "squash",
@@ -19,13 +20,11 @@
   "dependencyDashboardAutoclose": true,
   "prConcurrentLimit": 3,
   "reviewersFromCodeOwners": true,
-  "semanticCommits": "enabled",
-  "semanticCommitType": "chore",
   "packageRules": [
     {
       "matchSourceUrls": ["https://github.com/kuma-ui/kuma-ui"],
-      "groupName": "kuma-ui monorepo",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "groupName": "kuma-ui monorepo"
     },
     {
       "matchFileNames": ["dtm-database-frontend/**/*"],
