@@ -53,7 +53,7 @@ jobs:
         working-directory: dtm-database-backend
         run: cargo clippy -- -Dwarnings
 
-  run-schema-validation:
+  schema-validation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
