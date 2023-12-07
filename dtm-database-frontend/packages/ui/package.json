@@ -18,7 +18,7 @@
     "tsconfig": "workspace:*"
   },
   "dependencies": {
-    "@kuma-ui/core": "1.5.3",
+    "@kuma-ui/core": "1.5.4",
     "typescript": "5.2.2"
   }
 }
