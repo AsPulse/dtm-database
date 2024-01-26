@@ -58,8 +58,8 @@ importers:
         specifier: 7.5.3
         version: 7.5.3(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-onboarding':
-        specifier: 1.0.8
-        version: 1.0.8(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.0.11
+        version: 1.0.11(react-dom@18.2.0)(react@18.2.0)
       '@storybook/blocks':
         specifier: 7.5.3
         version: 7.5.3(@types/react-dom@18.2.17)(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)
@@ -3794,8 +3794,8 @@ packages:
       - '@types/react-dom'
     dev: true
 
-  /@storybook/addon-onboarding@1.0.8(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-3WwCocUuTibHWO89uzAbeONEn6x9NkmxA0mOU4rYPhEsMQ4NDNDD1GXcievZmpwt5VviFgw5FRx8+BxPn54YmQ==}
+  /@storybook/addon-onboarding@1.0.11(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-0Sa7PJDsM6AANOWZX7vq3kgCbS9AZFjr3tfr3bLGfXviwIBKjoZDDdIErJkS3D4mNcDa78lYQvp3PTCKwLIJ9A==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
