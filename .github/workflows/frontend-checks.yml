@@ -97,7 +97,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Publish to Chromatic
-        uses: chromaui/action@010142709398e03cee64f3351ed7503618093d9f # v1
+        uses: chromaui/action@1b04e0322aba2604aa23c6714aa6f704bdb301ad # v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: ./dtm-database-frontend/apps/stories
