@@ -6,7 +6,7 @@
   "service": "app",
   "workspaceFolder": "/app",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {}
+    "ghcr.io/devcontainers/features/node:1.6.1": {}
   },
   "customizations": {
     "vscode": {
