@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/rust:1-1-bullseye@sha256:066878f166fdc8ee717ecb3f94d4155dac857a7465a39af85509314f5abc1bbf
+FROM mcr.microsoft.com/devcontainers/rust:1-1-bullseye@sha256:6817e2f836956c5034933e52f305b6c1112b628d3fbad0e87f472a2839ad5fe0
 USER vscode
 RUN cargo install cargo-watch
 
