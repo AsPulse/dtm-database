@@ -11,7 +11,7 @@
     ":prHourlyLimitNone",
     ":rebaseStalePrs",
     ":semanticCommitTypeAll(deps)",
-    "npm:unpublishSafe"
+    "security:minimumReleaseAgeNpm"
   ],
   "automergeStrategy": "squash",
   "assignAutomerge": true,
@@ -22,16 +22,27 @@
   "reviewersFromCodeOwners": true,
   "packageRules": [
     {
-      "matchFileNames": ["dtm-database-frontend/**/*"],
+      "matchFileNames": [
+        "dtm-database-frontend/**/*"
+      ],
       "semanticCommitScope": "frontend"
     },
     {
-      "matchFileNames": ["dtm-database-backend/**/*"],
+      "matchFileNames": [
+        "dtm-database-backend/**/*"
+      ],
       "semanticCommitScope": "backend"
     },
     {
-      "matchSourceUrls": ["https://github.com/kuma-ui/kuma-ui"],
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "matchSourceUrls": [
+        "https://github.com/kuma-ui/kuma-ui"
+      ],
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "minor",
+        "major"
+      ],
       "groupName": "kuma-ui monorepo",
       "semanticCommitScope": "frontend"
     }
