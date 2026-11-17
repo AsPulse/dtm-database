@@ -11,13 +11,15 @@
     ":prHourlyLimitNone",
     ":rebaseStalePrs",
     ":semanticCommitTypeAll(deps)",
-    "npm:unpublishSafe"
+    "security:minimumReleaseAgeNpm"
   ],
   "automergeStrategy": "squash",
   "assignAutomerge": true,
   "assigneesFromCodeOwners": true,
   "commitBodyTable": true,
-  "dependencyDashboardAutoclose": true,
+  "dependencyDashboard": {
+    "autoclose": true
+  },
   "prConcurrentLimit": 3,
   "reviewersFromCodeOwners": true,
   "packageRules": [
